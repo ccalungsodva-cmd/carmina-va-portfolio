@@ -27,6 +27,7 @@
 </head>
 
 <body>
+    <div id="progressBar"></div>
 
     <!-- ================= NAVBAR ================= -->
 
@@ -57,6 +58,10 @@
 <!-- ================= HERO ================= -->
 
     <section class="hero" id="home">
+
+        <div class="blob blob1"></div>
+
+        <div class="blob blob2"></div>
 
         <div class="hero-text">
 
@@ -491,11 +496,48 @@
 
         </div>
 
+
+        <form
+            class="contact-form"
+            action="https://formspree.io/f/REPLACE_WITH_YOUR_ID"
+            method="POST">
+
+            <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required>
+
+            <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required>
+
+            <input
+            type="text"
+            name="subject"
+            placeholder="Subject">
+
+            <textarea
+            name="message"
+            rows="7"
+            placeholder="Tell me about your project..."
+            required></textarea>
+
+            <button type="submit">
+
+            Send Message
+
+            </button>
+
+        </form>
+
     </section>
 
 <button id="topBtn">
 
-↑
+<i class="fa-solid fa-arrow-up"></i>
 
 </button>
 

@@ -180,6 +180,7 @@ nav a:hover{
 
 }
 
+
 .hero-text h2{
 
     margin-top:20px;
@@ -1379,3 +1380,227 @@ body{
 
 }
 
+
+
+/* ================= CONTACT FORM ================= */
+
+.contact-form{
+
+    margin-top:60px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    max-width:700px;
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+}
+
+.contact-form input,
+
+.contact-form textarea{
+
+    width:100%;
+
+    padding:18px 22px;
+
+    border:none;
+
+    border-radius:18px;
+
+    font-size:1rem;
+
+    font-family:'Poppins',sans-serif;
+
+    outline:none;
+
+}
+
+.contact-form textarea{
+
+    resize:vertical;
+
+}
+
+.contact-form button{
+
+    background:linear-gradient(
+
+        135deg,
+
+        var(--accent),
+
+        var(--pink)
+
+    );
+
+    color:var(--primary);
+
+    border:none;
+
+    padding:18px;
+
+    border-radius:50px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.contact-form button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+
+#progressBar{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:0%;
+
+height:4px;
+
+background:linear-gradient(
+90deg,
+var(--accent),
+var(--secondary)
+);
+
+z-index:99999;
+
+}
+
+
+nav a.active{
+
+color:var(--primary);
+
+}
+
+nav a.active::after{
+
+width:100%;
+
+}
+
+.portfolio-card{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.portfolio-card::before{
+
+content:"View Project";
+
+position:absolute;
+
+inset:0;
+
+background:rgba(75,21,40,.82);
+
+color:white;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:1.3rem;
+
+opacity:0;
+
+transition:.35s;
+
+}
+
+.portfolio-card:hover::before{
+
+opacity:1;
+
+}
+
+
+.blob{
+
+position:absolute;
+
+border-radius:50%;
+
+filter:blur(60px);
+
+opacity:.18;
+
+animation:float 10s ease-in-out infinite;
+
+pointer-events:none;
+
+}
+
+.blob1{
+
+width:280px;
+
+height:280px;
+
+background:var(--pink);
+
+top:120px;
+
+right:5%;
+
+}
+
+.blob2{
+
+width:220px;
+
+height:220px;
+
+background:var(--accent);
+
+bottom:80px;
+
+left:5%;
+
+animation-delay:3s;
+
+}
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-30px);
+
+}
+
+}
