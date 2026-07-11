@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initSkillsAnimation();
     initRippleButtons();
     initVisitorCounter();
-    initChatbot();
 
 });
 
@@ -312,129 +311,132 @@ function initVisitorCounter(){
 }
 
 
-/* =====================================================
-   CHATBOT
-===================================================== */
 
-function initChatbot(){
 
-    const toggle=document.getElementById("chatToggle");
 
-    const box=document.getElementById("chatBox");
+/* ===========================
+LOCAL ANALYTICS
+=========================== */
 
-    const body=document.getElementById("chatBody");
+// total visits
 
-    if(!toggle || !box || !body) return;
+let visitors = localStorage.getItem("visitors");
 
-    toggle.addEventListener("click",()=>{
+if(!visitors){
 
-        box.classList.toggle("show");
+visitors = 1;
 
-    });
+}else{
 
-    window.chatReply=function(type){
-
-        let reply="";
-
-        switch(type){
-
-            case "services":
-
-                reply=`
-                <b>My Services</b><br><br>
-
-                • Administrative Support<br>
-                • Email Management<br>
-                • Calendar Management<br>
-                • Canva Design<br>
-                • Data Entry<br>
-                • Social Media Assistance
-                `;
-
-            break;
-
-            case "pricing":
-
-                reply=`
-                <b>Rates</b><br><br>
-
-                • Hourly Rate<br>
-                • Part-Time Package<br>
-                • Full-Time Package<br><br>
-
-                Full pricing will be available soon.
-                `;
-
-            break;
-
-            case "contact":
-
-                reply=`
-                📧 c.calungsod.va@gmail.com
-
-                <br><br>
-
-                Based in the Philippines 🇵🇭
-                `;
-
-            break;
-
-            case "book":
-
-                reply=`
-                Ready to work together?<br><br>
-
-                Click the Discovery Call button in the Contact section to schedule a free meeting.
-                `;
-
-            break;
-
-            default:
-
-                reply="Hello! 👋";
-
-        }
-
-        body.innerHTML=`
-
-        <div class="bot-message">
-
-        ${reply}
-
-        </div>
-
-        <div class="chat-options">
-
-            <button onclick="chatReply('services')">
-
-            Services
-
-            </button>
-
-            <button onclick="chatReply('pricing')">
-
-            Pricing
-
-            </button>
-
-            <button onclick="chatReply('contact')">
-
-            Contact
-
-            </button>
-
-            <button onclick="chatReply('book')">
-
-            Book Call
-
-            </button>
-
-        </div>
-
-        `;
-
-    }
-
-    chatReply();
+visitors = Number(visitors)+1;
 
 }
+
+localStorage.setItem("visitors",visitors);
+
+document.getElementById("visitorCount").innerHTML=visitors;
+
+
+// today visits
+
+const today = new Date().toDateString();
+
+let visitDate = localStorage.getItem("visitDate");
+let todayVisits = localStorage.getItem("todayVisits");
+
+if(visitDate!==today){
+
+localStorage.setItem("visitDate",today);
+localStorage.setItem("todayVisits",1);
+
+todayVisits=1;
+
+}else{
+
+todayVisits=Number(todayVisits)+1;
+
+localStorage.setItem("todayVisits",todayVisits);
+
+}
+
+document.getElementById("todayCount").innerHTML=todayVisits;
+
+
+// last visit
+
+const lastVisit=localStorage.getItem("lastVisit");
+
+if(lastVisit){
+
+document.getElementById("lastVisit").innerHTML=lastVisit;
+
+}else{
+
+document.getElementById("lastVisit").innerHTML="First Visit";
+
+}
+
+localStorage.setItem("lastVisit",new Date().toLocaleString([],{
+
+hour:"2-digit",
+
+minute:"2-digit"
+
+}));
+
+
+// device
+
+const mobile=/Android|iPhone|iPad|Mobile/i.test(navigator.userAgent);
+
+document.getElementById("deviceType").innerHTML=mobile?"Mobile":"Desktop";
+
+
+
+/* ================= CHATBOT ================= */
+
+const chatToggle=document.getElementById("chat-toggle");
+
+const chatBox=document.getElementById("chat-box");
+
+const chatClose=document.getElementById("chat-close");
+
+const chatMessage=document.getElementById("chat-message");
+
+chatToggle.onclick=()=>{
+
+chatBox.classList.toggle("show");
+
+};
+
+chatClose.onclick=()=>{
+
+chatBox.classList.remove("show");
+
+};
+
+const replies={
+
+services:"📁 I can help with Administrative Support, Email Management, Calendar Management, Canva Design, Social Media Support, and Data Entry.",
+
+rates:"💰 My rates are flexible depending on your business needs. Visit my Rates & Packages section or contact me for a custom quote.",
+
+portfolio:"🎨 Scroll down to the Portfolio section to see sample projects and mock client work.",
+
+call:"📅 You can book a FREE Discovery Call using the Calendly button in my Contact section.",
+
+contact:"📧 Email: c.calungsod.va@gmail.com<br><br>📍 Based in the Philippines 🇵🇭"
+
+};
+
+document.querySelectorAll(".chat-buttons button").forEach(button=>{
+
+button.onclick=()=>{
+
+const key=button.dataset.chat;
+
+chatMessage.innerHTML=replies[key];
+
+};
+
+});

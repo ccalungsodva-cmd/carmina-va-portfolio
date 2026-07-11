@@ -736,10 +736,9 @@ Continuous Learning
 
     </section>
 
-
 <!-- ================= STATS ================= -->
 
-    <section class="stats" data-aos="zoom-in">
+    <!-- <section class="stats" data-aos="zoom-in">
 
         <div class="stat-card">
             <h2>10+</h2>
@@ -761,8 +760,30 @@ Continuous Learning
             <p>Always Learning</p>
         </div>
 
-    </section>
+    </section> -->
+<section class="stats" data-aos="fade-up">
 
+<div class="stat-card">
+<h2 id="visitorCount">0</h2>
+<p>Total Visitors</p>
+</div>
+
+<div class="stat-card">
+<h2 id="todayCount">0</h2>
+<p>Visits Today</p>
+</div>
+
+<div class="stat-card">
+<h2 id="deviceType">...</h2>
+<p>Your Device</p>
+</div>
+
+<div class="stat-card">
+<h2 id="lastVisit">--</h2>
+<p>Last Visit</p>
+</div>
+
+</section>
 
     <!-- ================= WHY CHOOSE ME ================= -->
 
@@ -909,7 +930,7 @@ Continuous Learning
 
         </div>
 
-        <div class="contact-hook">
+        <!-- <div class="contact-hook">
 
         <h3>
         Let's Make Your Workday Easier ✨
@@ -919,8 +940,23 @@ Continuous Learning
         Whether you need help staying organized, managing daily tasks, or growing your business, I'd love to hear about your goals.
         </p>
 
-        </div>
+        </div> -->
+<div class="contact-hook">
 
+<h2>
+Let's Talk About Your Business
+</h2>
+
+<p>
+
+Need help staying organized?
+Whether it's admin support, social media, or day-to-day tasks, I'd love to learn more about your business.
+
+Fill out the form below and I'll get back to you within 24 hours.
+
+</p>
+
+</div>
 
         <form
             class="contact-form"
@@ -1052,58 +1088,87 @@ offset:100
 
 </script>
 
-        <div id="chatbot">
 
-        <div id="chat-header">
 
-        🤖 Mina AI
-localStorage
-        </div>
 
-        <div id="chat-body">
 
-        <div class="bot-message">
 
-        Hi! 👋
 
-        I'm Carmina's virtual assistant.
 
-        How can I help?
 
-        </div>
+<!-- ================= CHATBOT ================= -->
 
-        <button class="chat-option">
-        Services
-        </button>
+<button id="chat-toggle">
+💬
+</button>
 
-        <button class="chat-option">
-        Rates
-        </button>
+<div id="chat-box">
 
-        <button class="chat-option">
-        Portfolio
-        </button>
+<div class="chat-header">
 
-        <button class="chat-option">
-        Discovery Call
-        </button>
+<div>
 
-        <button class="chat-option">
-        Contact
-        </button>
+🤖 Mina AI
 
-        </div>
+<p>Usually replies instantly</p>
 
-        </div>
+</div>
 
-        <button id="chat-toggle">
+<span id="chat-close">&times;</span>
 
-        💬
+</div>
 
-        </button>   
+<div class="chat-content">
+
+<div id="chat-message">
+
+Hi! 👋
+
+I'm Mina, Carmina's virtual assistant.
+
+How can I help you today?
+
+</div>
+
+<div class="chat-buttons">
+
+<button data-chat="services">
+
+Services
+
+</button>
+
+<button data-chat="rates">
+
+Rates
+
+</button>
+
+<button data-chat="portfolio">
+
+Portfolio
+
+</button>
+
+<button data-chat="call">
+
+Discovery Call
+
+</button>
+
+<button data-chat="contact">
+
+Contact
+
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 <script src="script.js"></script>
-
 </body>
 
 </html>
