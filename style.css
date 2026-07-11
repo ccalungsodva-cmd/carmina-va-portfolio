@@ -2297,3 +2297,80 @@ background:var(--accent);
 color:white;
 
 }
+
+.chatbot{
+    position:fixed;
+    bottom:90px;
+    right:20px;
+    width:340px;
+    max-width:calc(100vw - 30px);
+    max-height:520px;
+    overflow:hidden;
+    border-radius:20px;
+    background:#fff;
+    box-shadow:0 20px 40px rgba(0,0,0,.18);
+    display:none;
+    z-index:9999;
+}
+
+.chat-body{
+    max-height:330px;
+    overflow-y:auto;
+}
+
+.cursor-glow{
+
+position:fixed;
+
+width:250px;
+
+height:250px;
+
+border-radius:50%;
+
+pointer-events:none;
+
+background:radial-gradient(circle,
+rgba(217,169,160,.25),
+transparent 70%);
+
+transform:translate(-50%,-50%);
+
+z-index:0;
+
+transition:.08s;
+
+}
+
+
+#scrollPercent{
+
+position:fixed;
+
+left:20px;
+
+bottom:25px;
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+background:#4B1528;
+
+color:#fff;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-weight:600;
+
+z-index:999;
+
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+}
